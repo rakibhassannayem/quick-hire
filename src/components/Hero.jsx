@@ -1,6 +1,12 @@
 import React from 'react';
 import Container from './shared/Container';
 import { FiSearch, FiMapPin } from 'react-icons/fi';
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+});
+
 
 const Hero = () => {
   return (
@@ -25,7 +31,7 @@ const Hero = () => {
         <div className='flex flex-col md:flex-row items-center justify-between min-h-[500px] relative z-10'>
           {/* Left Content */}
           <div className='max-w-xl w-full text-center md:text-left'>
-            <h1 className='text-5xl md:text-7xl font-bold text-[#25324B] leading-tight mb-6'>
+            <h1 className={`${spaceGrotesk.className} text-5xl md:text-7xl font-bold text-[#25324B] leading-tight mb-6`}>
               Discover <br /> more than <br />
               <span className='relative inline-block text-[#26A4FF]'>
                 5000+ Jobs
@@ -34,7 +40,7 @@ const Hero = () => {
                 </svg>
               </span>
             </h1>
-            <p className='text-lg text-[#515B6F] mb-8'>
+            <p className='text-lg text-neutral-500/80 mb-8'>
               Great platform for the job seeker that searching for <br className="hidden md:block" />
               new career heights and passionate about startups.
             </p>
@@ -56,7 +62,7 @@ const Hero = () => {
               </button>
             </div>
 
-            <p className='text-[#515B6F] text-sm'>
+            <p className='text-black text-sm'>
               <span className='opacity-70 font-bold'>Popular :</span> UI Designer, UX Researcher, Android, Admin
             </p>
           </div>
