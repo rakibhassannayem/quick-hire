@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link href={'/'} className='flex items-center gap-2'>
       <img src="/logo.png" alt="" />
-      <h2 className='text-2xl font-bold'>Quick Hire</h2>
+      <h2 className='text-2xl font-bold'>QuickHire</h2>
     </Link>
   );
 };
