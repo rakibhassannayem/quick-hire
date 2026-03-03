@@ -36,7 +36,7 @@ const Footer = () => {
             <form>
               <h6 className="text-lg font-semibold text-white">Get job notifications</h6>
               <p className='pb-6 pt-1'>The latest job news, articles, sent to <br />your inbox weekly.</p>
-              <fieldset className="w-80">
+              <fieldset className="max-w-80">
                 <div className="flex gap-1">
                   <input
                     type="text"

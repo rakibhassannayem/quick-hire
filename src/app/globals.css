@@ -5,7 +5,11 @@
 
 @layer base {
   :root {
-    --color-primary: blue;
+    --color-primary: #4640DE;
     --color-secondary: #26A4FF;
   }
+}
+
+.clip-custom {
+  @apply [clip-path:polygon(8%_0%,100%_0%,100%_65%,92%_100%,0%_100%,0%_35%)];
 }

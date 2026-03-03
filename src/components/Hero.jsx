@@ -11,10 +11,10 @@ const spaceGrotesk = Space_Grotesk({
 const Hero = () => {
   return (
     <div
-      className="relative overflow-hidden pt-10 pb-20 bg-[#F8F8FD] md:bg-[url('/heroimage.png')] bg-no-repeat bg-right-bottom md:bg-[length:auto_90%] lg:bg-[length:auto_100%] md:bg-gradient-to-r md:from-[#F8F8FD] md:from-[45%] md:to-transparent"
+      className="relative overflow-hidden bg-[#F8F8FD] [clip-path:polygon(0%_0%,100%_0%,100%_70%,80%_100%,0%_100%,0%_35%)]"
     >
       {/* Background Decorative Lines */}
-      <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0">
+      <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0 ">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1000 -100L1600 500" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="5" />
           <path d="M1100 -100L1700 500" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="5" />
@@ -67,8 +67,10 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Spacer for background image on desktop */}
-          <div className='hidden md:block w-1/2 min-h-[400px]' />
+          {/* image */}
+          <div className='hidden md:block w-1/2'>
+          <img src="/heroimage.png" alt="" />
+          </div>
         </div>
       </Container>
     </div>

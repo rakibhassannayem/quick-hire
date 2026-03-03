@@ -64,14 +64,16 @@ const Categories = () => {
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
         {categories.map((category) => (
-          <div key={category.id} className='bg-white hover:bg-primary/90 hover:text-white p-6 hover:shadow-md transition-all duration-300 cursor-pointer border border-neutral-500/20'>
+          <div key={category.id} className='bg-white hover:bg-primary/60 hover:text-white p-6 hover:shadow-md transition-all duration-300 cursor-pointer border border-neutral-500/20'>
 
-            <div className='my-2 p-4 inline-block rounded-lg bg-primary/10'>
+            <div className='my-4 p-4 inline-block rounded-lg bg-primary/10'>
               <i className={`${category.icon} text-primary text-2xl`}></i>
             </div>
-            <div>
-              <h3 className='text-lg font-semibold'>{category.name}</h3>
-              <p className='text-sm flex items-center gap-2'>{category.jobs} jobs available <IoIosArrowRoundForward size={20} /></p>
+
+            <h3 className='text-xl pb-2 font-semibold'>{category.name}</h3>
+            <div className='font-medium text-gray-500 flex items-center gap-2'>
+              {category.jobs} jobs available
+              <IoIosArrowRoundForward size={20} />
             </div>
 
           </div>

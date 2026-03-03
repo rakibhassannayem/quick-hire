@@ -1,6 +1,7 @@
 import Categories from "@/components/Categories";
 import Companies from "@/components/Companies";
 import Hero from "@/components/Hero";
+import Newsletter from "@/components/Newsletter";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Companies />
       <Categories />
+      <Newsletter />
     </div>
   );
 }
