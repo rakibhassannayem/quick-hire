@@ -5,7 +5,7 @@ import Container from './shared/Container';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-[#F8F8FD]">
       <Container>
         <div className='flex items-center justify-between'>
           <div className="navbar-start w-full lg:w-auto gap-5">
