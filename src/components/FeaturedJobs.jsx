@@ -7,7 +7,7 @@ const jobs = [
   {
     id: 1,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     companyName: "Revolut",
     jobTitle: "Email Marketing",
     location: "Madrid, Spain",
@@ -17,7 +17,7 @@ const jobs = [
   {
     id: 2,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Brand Designer",
     companyName: "Dropbox",
     location: "San Fransisco, US",
@@ -27,7 +27,7 @@ const jobs = [
   {
     id: 3,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Email Marketing",
     companyName: "Pitch",
     location: "Berlin, Germany",
@@ -37,7 +37,7 @@ const jobs = [
   {
     id: 4,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Visual Designer",
     companyName: "Blinkist",
     location: "Granada, Spain",
@@ -47,7 +47,7 @@ const jobs = [
   {
     id: 5,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Product Designer",
     companyName: "ClassPass",
     location: "Manchaster, UK",
@@ -57,7 +57,7 @@ const jobs = [
   {
     id: 6,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Lead Designer",
     companyName: "Canva",
     location: "Ontario, Canada",
@@ -67,7 +67,7 @@ const jobs = [
   {
     id: 7,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Brand Strategist",
     companyName: "GoDaddy",
     location: "Marselle, France",
@@ -77,7 +77,7 @@ const jobs = [
   {
     id: 8,
     icon: "fa-solid fa-code",
-    jobType: "Full-time",
+    jobType: "Full-Time",
     jobTitle: "Data Analyst",
     companyName: "Twitter",
     location: "San Diego, US",

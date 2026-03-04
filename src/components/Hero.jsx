@@ -23,7 +23,7 @@ const Hero = () => {
           <path d="M600 -100L1200 500" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="5" />
           <path d="M1440 200L800 800" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="5" />
           <path d="M1440 300L900 800" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="5" />
-          <path d="M1440 100L700 800" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="1" />
+          <path d="M1440 100L700 800" stroke="#4640DE" strokeOpacity="0.05" strokeWidth="5" />
         </svg>
       </div>
 
@@ -31,7 +31,7 @@ const Hero = () => {
         <div className='flex flex-col md:flex-row items-center justify-between min-h-[500px] relative z-10'>
           {/* Left Content */}
           <div className='max-w-xl w-full text-center md:text-left'>
-            <h1 className={`${spaceGrotesk.className} text-5xl md:text-7xl font-bold text-[#25324B] leading-tight mb-6`}>
+            <h1 className={`${spaceGrotesk.className} text-5xl md:text-7xl font-extrabold text-[#25324B] mb-6`}>
               Discover <br /> more than <br />
               <span className='relative inline-block text-[#26A4FF]'>
                 5000+ Jobs
@@ -69,7 +69,7 @@ const Hero = () => {
 
           {/* image */}
           <div className='hidden md:block w-1/2'>
-          <img src="/heroimage.png" alt="" />
+            <img src="/heroimage.png" alt="hero" className='w-[80%]' />
           </div>
         </div>
       </Container>

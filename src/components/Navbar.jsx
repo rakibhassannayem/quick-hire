@@ -5,14 +5,14 @@ import Container from './shared/Container';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-[#F8F8FD]">
+    <div className="navbar bg-[#F8F8FD] py-8">
       <Container>
         <div className='flex items-center justify-between'>
-          <div className="navbar-start w-full lg:w-auto gap-5">
+          <div className="navbar-start w-full lg:w-auto gap-10">
             <Logo />
             <div className='hidden lg:flex gap-3 items-center font-semibold'>
-              <Link href={'#'} className='text-slate-500'>Find Jobs</Link>
-              <Link href={'#'} className='text-slate-500'>Browse Companies</Link>
+              <Link href={'#'} className='text-slate-500 text-lg'>Find Jobs</Link>
+              <Link href={'#'} className='text-slate-500 text-lg'>Browse Companies</Link>
             </div>
           </div>
 
@@ -30,8 +30,8 @@ const Navbar = () => {
                 <li><a href='#' className="btn btn-primary text-white">Sign Up</a></li>
               </ul>
             </div>
-            <a href='#' className="btn btn-ghost hidden lg:flex">Login</a>
-            <a href='#' className="btn btn-primary text-white hidden lg:flex">Sign Up</a>
+            <a href='#' className="btn btn-ghost hidden lg:flex text-lg">Login</a>
+            <a href='#' className="btn btn-primary text-white hidden lg:flex text-lg">Sign Up</a>
           </div>
         </div>
       </Container>
