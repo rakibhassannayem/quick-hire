@@ -1,6 +1,6 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
-import Container from "./shared/Container";
-import Title from "./shared/Title";
+import Container from "../shared/Container";
+import Title from "../shared/Title";
 
 const jobs = [
   {
@@ -123,7 +123,7 @@ const LatestJobs = () => {
         </div>
 
         {/* Card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
           {jobs.map((job) => (
             <div key={job.id} className="bg-white p-5 flex items-center gap-5">
               <div className="bg-primary/20 p-2 rounded-full">ico</div>

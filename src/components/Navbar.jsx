@@ -5,13 +5,13 @@ import Container from './shared/Container';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-[#F8F8FD] py-8">
+    <div className="navbar bg-[#F8F8FD] py-5">
       <Container>
         <div className='flex items-center justify-between'>
           <div className="navbar-start w-full lg:w-auto gap-10">
             <Logo />
             <div className='hidden lg:flex gap-3 items-center font-semibold'>
-              <Link href={'#'} className='text-slate-500 text-lg'>Find Jobs</Link>
+              <Link href={'/allJobs'} className='text-slate-500 text-lg'>Find Jobs</Link>
               <Link href={'#'} className='text-slate-500 text-lg'>Browse Companies</Link>
             </div>
           </div>

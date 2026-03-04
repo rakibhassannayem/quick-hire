@@ -1,4 +1,4 @@
-import Container from "./shared/Container";
+import Container from "../shared/Container";
 
 const Companies = () => {
   const logos = [

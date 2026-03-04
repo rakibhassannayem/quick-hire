@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from './shared/Title';
-import Container from './shared/Container';
+import Title from '../shared/Title';
+import Container from '../shared/Container';
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const jobs = [

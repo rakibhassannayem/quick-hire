@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from './shared/Container';
+import Container from '../shared/Container';
 import { FiSearch, FiMapPin } from 'react-icons/fi';
 import { Space_Grotesk } from "next/font/google";
 
@@ -10,9 +10,11 @@ const spaceGrotesk = Space_Grotesk({
 
 const Hero = () => {
   return (
-    <div
-      className="relative overflow-hidden bg-[#F8F8FD] [clip-path:polygon(0%_0%,100%_0%,100%_70%,80%_100%,0%_100%,0%_35%)]"
-    >
+    <div className="relative">
+      {/* Background Shape Layer */}
+      <div
+        className="absolute inset-0 bg-[#F8F8FD] [clip-path:polygon(0%_0%,100%_0%,100%_70%,80%_100%,0%_100%,0%_35%)] z-0"
+      />
       {/* Background Decorative Lines */}
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0 ">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,8 +29,8 @@ const Hero = () => {
         </svg>
       </div>
 
-      <Container>
-        <div className='flex flex-col md:flex-row items-center justify-between min-h-[500px] relative z-10'>
+      <Container className="relative z-10">
+        <div className='flex flex-col md:flex-row items-center justify-between min-h-[500px] relative'>
           {/* Left Content */}
           <div className='max-w-xl w-full text-center md:text-left'>
             <h1 className={`${spaceGrotesk.className} text-5xl md:text-7xl font-extrabold text-[#25324B] mb-6`}>
@@ -68,8 +70,8 @@ const Hero = () => {
           </div>
 
           {/* image */}
-          <div className='hidden md:block w-1/2'>
-            <img src="/heroimage.png" alt="hero" className='w-[80%]' />
+          <div className='hidden lg:block w-1/2'>
+            <img src="/heroimage.png" alt="hero" className='w-[80%] ' />
           </div>
         </div>
       </Container>

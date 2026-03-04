@@ -1,4 +1,4 @@
-import Container from './shared/Container';
+import Container from '../shared/Container';
 import { Saira } from "next/font/google";
 
 const saira = Saira({
