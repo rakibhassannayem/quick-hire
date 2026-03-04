@@ -1,4 +1,4 @@
-import Container from './shared/Container';
+import Container from './Container';
 import Link from 'next/link';
 import { RiFacebookFill, RiInstagramLine, RiLinkedinFill, RiTwitterFill } from "react-icons/ri";
 import { BsGlobe2 } from "react-icons/bs";

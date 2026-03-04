@@ -1,7 +1,7 @@
 import { Epilogue } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const epilogue = Epilogue({
   subsets: ["latin"],

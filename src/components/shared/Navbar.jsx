@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from './shared/Logo';
+import Logo from './Logo';
 import Link from 'next/link';
-import Container from './shared/Container';
+import Container from './Container';
 
 const Navbar = () => {
   return (
