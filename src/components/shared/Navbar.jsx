@@ -4,15 +4,20 @@ import Link from 'next/link';
 import Container from './Container';
 
 const Navbar = () => {
+  const links = <>
+    <li className='list-none'><Link href={'/allJobs'} className='text-slate-500'>Find Jobs</Link></li>
+    <li className='list-none'><Link href={'#'} className='text-slate-500'>Browse Companies</Link></li>
+    <li className='list-none'><Link href={'/dashboard'} className='text-slate-500'>Admin Dashboard</Link></li>
+  </>
+
   return (
-    <div className="navbar bg-[#F8F8FD] py-5">
+    <div className="navbar bg-primary/5 py-5">
       <Container>
         <div className='flex items-center justify-between'>
-          <div className="navbar-start w-full lg:w-auto gap-10">
+          <div className="navbar-start w-full gap-10">
             <Logo />
-            <div className='hidden lg:flex gap-3 items-center font-semibold'>
-              <Link href={'/allJobs'} className='text-slate-500 text-lg'>Find Jobs</Link>
-              <Link href={'#'} className='text-slate-500 text-lg'>Browse Companies</Link>
+            <div className='hidden lg:flex gap-5 items-center font-semibold'>
+              {links}
             </div>
           </div>
 
@@ -24,8 +29,7 @@ const Navbar = () => {
               <ul
                 tabIndex="-1"
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li><a href='#' className="btn btn-ghost">Find Jobs</a></li>
-                <li><a href='#' className="btn btn-ghost">Browse Companies</a></li>
+                {links}
                 <li><a href='#' className="btn btn-ghost">Login</a></li>
                 <li><a href='#' className="btn btn-primary text-white">Sign Up</a></li>
               </ul>
