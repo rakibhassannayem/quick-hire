@@ -2,9 +2,10 @@ import React from 'react';
 import Container from "@/components/shared/Container";
 import { FiMapPin, FiBriefcase, FiClock, FiLayers, FiCheckCircle } from "react-icons/fi";
 import Link from 'next/link';
+import ApplyForm from '@/components/ApplyForm';
 
 const getJob = async (id) => {
-  const res = await fetch('http://localhost:3000/api/jobs', { cache: 'no-store' });
+  const res = await fetch('http://localhost:3000/api/jobs');
   const jobs = await res.json();
   return jobs.find(job => job.id === parseInt(id));
 }
@@ -65,9 +66,7 @@ const JobDetails = async ({ params }) => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <button className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 active:scale-95 transform">
-                Apply Now
-              </button>
+              <ApplyForm jobTitle={job.jobTitle} companyName={job.companyName} />
             </div>
           </div>
         </Container>
