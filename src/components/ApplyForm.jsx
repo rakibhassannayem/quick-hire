@@ -1,9 +1,10 @@
 "use client";
 
+import { postJobApplication } from '@/services/applicationServices';
 import React, { useState } from 'react';
 import { FiX, FiUser, FiMail, FiLink, FiFileText, FiSend } from "react-icons/fi";
 
-const ApplyForm = ({ jobTitle, companyName }) => {
+const ApplyForm = ({ jobId, jobTitle, companyName }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -29,10 +30,16 @@ const ApplyForm = ({ jobTitle, companyName }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      // console.log('Form Submitted:', formData);
-      setIsSubmitting(false);
+    try {
+      const applicationData = {
+        ...formData,
+        jobId,
+        jobTitle,
+        companyName
+      };
+
+      await postJobApplication(applicationData);
+
       setIsSuccess(true);
       setFormData({
         name: '',
@@ -40,7 +47,12 @@ const ApplyForm = ({ jobTitle, companyName }) => {
         resumeLink: '',
         coverNote: ''
       });
-    }, 500);
+    } catch (error) {
+      console.error('Application error:', error);
+      alert('Failed to send application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

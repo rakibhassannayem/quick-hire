@@ -3,16 +3,13 @@ import Container from "@/components/shared/Container";
 import { FiMapPin, FiBriefcase, FiClock, FiLayers, FiCheckCircle } from "react-icons/fi";
 import Link from 'next/link';
 import ApplyForm from '@/components/ApplyForm';
+import { getSingleJob } from '@/services/jobsServices';
 
-const getJob = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
-  const job = await res.json();
-  return job;
-}
+
 
 const JobDetails = async ({ params }) => {
   const { id } = await params;
-  const job = await getJob(id);
+  const job = await getSingleJob(id);
 
   if (!job) {
     return (
@@ -66,7 +63,7 @@ const JobDetails = async ({ params }) => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <ApplyForm jobTitle={job.jobTitle} companyName={job.companyName} />
+              <ApplyForm jobId={job._id} jobTitle={job.jobTitle} companyName={job.companyName} />
             </div>
           </div>
         </Container>
