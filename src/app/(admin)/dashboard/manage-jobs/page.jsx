@@ -60,8 +60,8 @@ const ManageJobsPage = () => {
           jobs.map((job) => (
             <div key={job._id} className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
               <div className="flex items-center gap-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl">
-                  <i className={job.icon}></i>
+                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl overflow-hidden border border-gray-50 p-2">
+                  <img src={job.logo} alt={job.companyName} className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-[#25324B] group-hover:text-primary transition-colors">{job.jobTitle}</h4>

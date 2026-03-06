@@ -4,16 +4,19 @@ import FeaturedJobs from "@/components/landing/FeaturedJobs";
 import Hero from "@/components/landing/Hero";
 import LatestJobs from "@/components/landing/LatestJobs";
 import Newsletter from "@/components/landing/Newsletter";
+import { getAllJobs } from "@/services/jobsServices";
 
-export default function Home() {
+export default async function Home() {
+  const jobs = await getAllJobs();
+
   return (
     <div className="space-y-14">
       <Hero />
       <Companies />
       <Categories />
       <Newsletter />
-      <FeaturedJobs />
-      <LatestJobs />
+      <FeaturedJobs jobs={jobs} />
+      <LatestJobs jobs={jobs} />
     </div>
   );
 }

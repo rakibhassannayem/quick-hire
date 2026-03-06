@@ -46,8 +46,8 @@ const JobDetails = async ({ params }) => {
         <Container>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-4xl shadow-sm border border-primary/5 transition-transform hover:scale-105 duration-300">
-                <i className={job.icon}></i>
+              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-primary text-4xl shadow-sm border border-gray-100 p-3 transition-transform hover:scale-105 duration-300 overflow-hidden">
+                <img src={job.logo} alt={job.companyName} className="w-full h-full object-contain" />
               </div>
               <div className="space-y-2">
                 <h1 className="text-4xl font-extrabold text-[#25324B] tracking-tight">
@@ -136,7 +136,9 @@ const JobDetails = async ({ params }) => {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-medium">Job Posted</p>
-                    <p className="font-bold text-[#25324B]">2 days ago</p>
+                    <p className="font-bold text-[#25324B]">
+                      {job.createdAt ? new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(job.createdAt)) : 'Recently'}
+                    </p>
                   </div>
                 </div>
 

@@ -13,7 +13,7 @@ const AddJobPage = () => {
     location: '',
     category: 'Technology',
     jobType: 'Full-Time',
-    icon: 'fa-solid fa-code',
+    logo: 'https://logo.clearbit.com/google.com',
     description: '',
     keywords: ''
   });
@@ -44,7 +44,7 @@ const AddJobPage = () => {
         location: '',
         category: 'Technology',
         jobType: 'Full-Time',
-        icon: 'fa-solid fa-code',
+        logo: 'https://logo.clearbit.com/google.com',
         description: '',
         keywords: ''
       });
@@ -109,11 +109,11 @@ const AddJobPage = () => {
             />
           </div>
           <div className="space-y-3">
-            <label className="text-sm font-bold text-[#25324B]">Job Icon (FontAwesome Class)</label>
+            <label className="text-sm font-bold text-[#25324B]">Company Logo URL (e.g. Cleabit URL)</label>
             <input
-              required name="icon" value={formData.icon} onChange={handleChange}
+              required name="logo" value={formData.logo} onChange={handleChange}
               className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-              placeholder="fa-solid fa-code"
+              placeholder="https://logo.clearbit.com/google.com"
             />
           </div>
           <div className="space-y-3">

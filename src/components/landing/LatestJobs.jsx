@@ -1,94 +1,11 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Container from "../shared/Container";
 import Title from "../shared/Title";
+import Link from "next/link";
 
-const jobs = [
-  {
-    id: 1,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    companyName: "Revolut",
-    jobTitle: "Email Marketing",
-    location: "Madrid, Spain",
-    description: "Revolut is looking for Email Marketing to help team manage their email marketing campaigns.",
-    keywords: ["Marketing", "Design"],
-  },
-  {
-    id: 2,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Brand Designer",
-    companyName: "Dropbox",
-    location: "San Fransisco, US",
-    description: "Dropbox is looking for Brand Designer to help the team to design new features",
-    keywords: ["Design", "Business"],
-  },
-  {
-    id: 3,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Email Marketing",
-    companyName: "Pitch",
-    location: "Berlin, Germany",
-    description: "Pitch is looking for Customer Manager to join marketing team",
-    keywords: ["Marketing"],
-  },
-  {
-    id: 4,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Visual Designer",
-    companyName: "Blinkist",
-    location: "Granada, Spain",
-    description: "Blinkist is looking for Visual Designer to help team design new features",
-    keywords: ["Design"],
-  },
-  {
-    id: 5,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Product Designer",
-    companyName: "ClassPass",
-    location: "Manchaster, UK",
-    description: "ClassPass is looking for Product Designer to help us design new features",
-    keywords: ["Marketing", "Design"],
-  },
-  {
-    id: 6,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Lead Designer",
-    companyName: "Canva",
-    location: "Ontario, Canada",
-    description: "Canva is looking for Lead Engineer to help develop new features",
-    keywords: ["Design"],
-  },
-  {
-    id: 7,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Brand Strategist",
-    companyName: "GoDaddy",
-    location: "Marselle, France",
-    description: "GoDaddy is looking for Brand Strategist to join their team",
-    keywords: ["Marketing"],
-  },
-  {
-    id: 8,
-    icon: "fa-solid fa-code",
-    jobType: "Full-Time",
-    jobTitle: "Data Analyst",
-    companyName: "Twitter",
-    location: "San Diego, US",
-    description: "Twitter is looking for Data Analyst to help team desing their product.",
-    keywords: ["Technology"],
-  },
-
-];
-
-const LatestJobs = () => {
+const LatestJobs = ({ jobs = [] }) => {
   const getKeywordColor = (keyword) => {
-    const kw = keyword.toLowerCase();
+    const kw = keyword?.toLowerCase();
     if (kw === 'marketing') return 'text-orange-500 border-orange-500/20';
     if (kw === 'design') return 'text-emerald-500 border-emerald-500/20';
     if (kw === 'technology') return 'text-red-500 border-red-500/20';
@@ -117,16 +34,18 @@ const LatestJobs = () => {
       <Container className="pt-15 pb-20 relative z-10">
         <div className="flex items-center justify-between">
           <Title>Latest <span className="text-secondary">Jobs open</span></Title>
-          <button className='text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all duration-300 hover:underline underline-offset-8 cursor-pointer'>
+          <Link href="/allJobs" className='text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all duration-300 hover:underline underline-offset-8 cursor-pointer'>
             Show all jobs <IoIosArrowRoundForward size={30} />
-          </button>
+          </Link>
         </div>
 
         {/* Card */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
-          {jobs.map((job) => (
-            <div key={job.id} className="bg-white p-5 flex items-center gap-5">
-              <div className="bg-primary/20 p-2 rounded-full">ico</div>
+          {jobs.slice(0, 8).map((job) => (
+            <Link href={`/allJobs/${job._id}`} key={job._id} className="bg-white p-5 flex items-center gap-5">
+              <div className="bg-primary/20 p-2 rounded-full w-12 h-12 overflow-hidden flex items-center justify-center shrink-0">
+                <img src={job.logo} alt={job.companyName} className="w-full h-full object-contain" />
+              </div>
 
               <div>
                 <h4 className='text font-semibold'>{job.jobTitle}</h4>
@@ -142,23 +61,19 @@ const LatestJobs = () => {
                   <span className="text-gray-300 text-xl">|</span>
 
                   <div className='flex items-center gap-2 flex-wrap'>
-                    {job.keywords.map((keyword, i) => (
-                      <p
-                        key={i}
-                        className={`px-4 py-1.5 rounded-full text-xs font-bold border ${getKeywordColor(keyword)}`}
-                      >
-                        {keyword}
-                      </p>
-                    ))}
+                    <p
+                      className={`px-4 py-1.5 rounded-full text-xs font-bold border ${getKeywordColor(job.category)}`}
+                    >
+                      {job.category}
+                    </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Container>
     </div>
-
   );
 };
 
