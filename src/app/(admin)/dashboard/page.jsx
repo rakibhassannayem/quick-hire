@@ -13,7 +13,7 @@ const StatCard = ({ title, value, icon, color, trend }) => (
       )}
     </div>
     <h3 className="text-gray-500 text-sm font-medium">{title}</h3>
-    <p className="text-2xl font-bold text-[#25324B] mt-1">{value}</p>
+    <p className="text-2xl font-bold mt-1">{value}</p>
   </div>
 );
 
@@ -45,8 +45,8 @@ const DashboardPage = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-[#25324B]">Welcome back, Admin!</h1>
-        <p className="text-[#515B6F] mt-2">Here's what's happening with your job listings today.</p>
+        <h1 className="text-3xl font-bold">Welcome back, Admin!</h1>
+        <p className="text-gray-500 mt-2">Here's what's happening with your job listings today.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -57,7 +57,7 @@ const DashboardPage = () => {
 
       {/* Placeholder for more content to show layout working */}
       <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-        <h2 className="text-xl font-bold text-[#25324B] mb-4">Recent Activity</h2>
+        <h2 className="text-xl font-bold mb-4">Recent Activity</h2>
         <div className="flex flex-col gap-4">
           {[1, 2, 3].map((i) => (
             <div key={i} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors border border-transparent hover:border-gray-100">

@@ -1,22 +1,47 @@
 "use client";
 
-import React, { useState } from 'react';
+import { getAllJobs, deleteJob } from '@/services/jobsServices';
+import React, { useEffect, useState } from 'react';
 import { FiTrash2, FiBriefcase, FiMapPin, FiSettings } from "react-icons/fi";
 
 const ManageJobsPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [jobs, setJobs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Mock Jobs for UI only
-  const [jobs, setJobs] = useState([
-    { id: 1, jobTitle: 'Senior UI Designer', companyName: 'Dropbox', location: 'San Francisco, US', jobType: 'Full-Time', icon: 'fa-solid fa-code' },
-    { id: 2, jobTitle: 'Marketing Manager', companyName: 'Pitch', location: 'Berlin, Germany', jobType: 'Full-Time', icon: 'fa-solid fa-code' },
-    { id: 3, jobTitle: 'Full-Stack Developer', companyName: 'Revolut', location: 'Madrid, Spain', jobType: 'Full-Time', icon: 'fa-solid fa-code' },
-  ]);
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const data = await getAllJobs();
+        setJobs(data);
+      } catch (error) {
+        console.error("Failed to fetch jobs:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchJobs();
+  }, []);
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (!confirm('Are you sure you want to delete this job?')) return;
-    setJobs(prev => prev.filter(job => job.id !== id));
+
+    try {
+      await deleteJob(id);
+      setJobs(prev => prev.filter(job => job._id !== id));
+      alert("Job deleted successfully!");
+    } catch (error) {
+      console.error("Failed to delete job:", error);
+      alert("Failed to delete job. Please try again.");
+    }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -33,7 +58,7 @@ const ManageJobsPage = () => {
       <div className="grid grid-cols-1 gap-4">
         {jobs.length > 0 ? (
           jobs.map((job) => (
-            <div key={job.id} className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
+            <div key={job._id} className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6 group">
               <div className="flex items-center gap-6">
                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl">
                   <i className={job.icon}></i>
@@ -52,7 +77,7 @@ const ManageJobsPage = () => {
                   {job.jobType}
                 </span>
                 <button
-                  onClick={() => handleDelete(job.id)}
+                  onClick={() => handleDelete(job._id)}
                   className="p-4 bg-red-50 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white transition-all shadow-sm shadow-red-100"
                   title="Delete Job"
                 >
@@ -63,7 +88,9 @@ const ManageJobsPage = () => {
           ))
         ) : (
           <div className="bg-white p-20 rounded-3xl text-center border border-dashed border-gray-200">
-            <p className="text-gray-400">No jobs found. Start by adding one!</p>
+            <FiBriefcase className="mx-auto text-5xl text-gray-200 mb-4" />
+            <h3 className="text-xl font-bold text-gray-400">No jobs found</h3>
+            <p className="text-gray-400 mt-2">Start by adding your first job listing!</p>
           </div>
         )}
       </div>

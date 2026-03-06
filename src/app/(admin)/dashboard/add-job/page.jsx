@@ -1,5 +1,6 @@
 "use client";
 
+import { postJob } from '@/services/jobsServices';
 import React, { useState } from 'react';
 import { FiPlus, FiCheckCircle, FiAlertCircle } from "react-icons/fi";
 
@@ -10,8 +11,8 @@ const AddJobPage = () => {
     jobTitle: '',
     companyName: '',
     location: '',
-    jobType: 'Full-Time',
     category: 'Technology',
+    jobType: 'Full-Time',
     icon: 'fa-solid fa-code',
     description: '',
     keywords: ''
@@ -29,22 +30,49 @@ const AddJobPage = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // UI Only Mock
-    setTimeout(() => {
+    try {
+      const jobData = {
+        ...formData,
+        keywords: formData.keywords.split(',').map(kw => kw.trim()).filter(kw => kw !== '')
+      }
+      await postJob(jobData)
       setMessage({ type: 'success', text: 'Job added successfully!' });
-      setIsLoading(false);
+
       setFormData({
         jobTitle: '',
         companyName: '',
         location: '',
-        jobType: 'Full-Time',
         category: 'Technology',
+        jobType: 'Full-Time',
         icon: 'fa-solid fa-code',
         description: '',
         keywords: ''
       });
+
       setTimeout(() => setMessage({ type: '', text: '' }), 3000);
-    }, 1000);
+    } catch (error) {
+      console.error('Something went wrong!', error);
+      setMessage({ type: 'error', text: 'Failed to post Job. Please try again.' });
+    } finally {
+      setIsLoading(false);
+    }
+
+    // UI Only Mock
+    // setTimeout(() => {
+    //   setMessage({ type: 'success', text: 'Job added successfully!' });
+    //   setIsLoading(false);
+    //   setFormData({
+    //     jobTitle: '',
+    //     companyName: '',
+    //     location: '',
+    //     jobType: 'Full-Time',
+    //     category: 'Technology',
+    //     icon: 'fa-solid fa-code',
+    //     description: '',
+    //     keywords: ''
+    //   });
+    //   setTimeout(() => setMessage({ type: '', text: '' }), 3000);
+    // }, 1000);
   };
 
   return (
@@ -53,13 +81,6 @@ const AddJobPage = () => {
         <h1 className="text-3xl font-extrabold text-[#25324B]">Add New Job Listing</h1>
         <p className="text-gray-400 mt-2">Introduce a new career opportunity to the platform.</p>
       </div>
-
-      {message.text && (
-        <div className={`mb-8 p-4 rounded-2xl flex items-center gap-3 animate-in slide-in-from-top-4 duration-300 ${message.type === 'success' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 'bg-red-50 text-red-600 border border-red-100'}`}>
-          {message.type === 'success' ? <FiCheckCircle /> : <FiAlertCircle />}
-          <span className="font-bold">{message.text}</span>
-        </div>
-      )}
 
       <form onSubmit={handleAddJob} className="space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -133,6 +154,13 @@ const AddJobPage = () => {
           ></textarea>
         </div>
 
+        {message.text && (
+          <div className={`my-8 p-4 rounded-2xl flex items-center gap-3 animate-in slide-in-from-top-4 duration-300 ${message.type === 'success' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 'bg-red-50 text-red-600 border border-red-100'}`}>
+            {message.type === 'success' ? <FiCheckCircle /> : <FiAlertCircle />}
+            <span className="font-bold">{message.text}</span>
+          </div>
+        )}
+
         <button
           disabled={isLoading}
           className="w-full py-5 bg-primary text-white font-bold rounded-2xl hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 disabled:opacity-70 flex items-center justify-center gap-3"
@@ -140,6 +168,7 @@ const AddJobPage = () => {
           {isLoading ? <span className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> : <><FiPlus size={22} /> Publish Job Listing</>}
         </button>
       </form>
+
     </div>
   );
 };

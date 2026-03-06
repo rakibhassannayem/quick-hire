@@ -32,3 +32,15 @@ export const postJob = async (data) => {
 
   return res.json()
 }
+
+export const deleteJob = async (id) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/jobs/${id}`, {
+    method: "DELETE"
+  })
+
+  if (!res.ok) {
+    throw new Error("Failed to delete job!")
+  }
+
+  return res.json()
+}
