@@ -79,7 +79,7 @@ const AllJobs = async() => {
             {jobs.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {jobs.map((job) => (
-                  <Link href={`/allJobs/${job.id}`} key={job.id} className="bg-white p-6 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group cursor-pointer">
+                  <Link href={`/allJobs/${job._id}`} key={job._id} className="bg-white p-6 border border-gray-100 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group cursor-pointer">
                     <div className="flex items-start justify-between mb-4">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-xl">
                         <i className={job.icon}></i>

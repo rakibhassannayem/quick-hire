@@ -39,13 +39,6 @@ const DashboardPage = () => {
       icon: <FiEye size={24} />,
       color: 'bg-orange-500 shadow-orange-500/20',
       trend: '+5% this month'
-    },
-    {
-      title: 'Active Campaigns',
-      value: '12',
-      icon: <FiBarChart2 size={24} />,
-      color: 'bg-purple-500 shadow-purple-500/20',
-      trend: '0% this month'
     }
   ];
 
@@ -56,7 +49,7 @@ const DashboardPage = () => {
         <p className="text-[#515B6F] mt-2">Here's what's happening with your job listings today.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
           <StatCard key={index} {...stat} />
         ))}

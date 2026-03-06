@@ -23,8 +23,8 @@ const Sidebar = ({ isOpen, onClose }) => {
       )}
 
       <aside className={`fixed inset-y-0 left-0 z-50 w-72 bg-white border-r border-gray-100 p-8 flex flex-col gap-8 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="flex items-center justify-between mb-4">
-          <Logo />
+        <div className="flex items-center justify-between mb-4 gap-4">
+          <Logo titleClassName="text-2xl" />
           <button
             onClick={onClose}
             className="lg:hidden p-2 hover:bg-gray-100 rounded-lg text-gray-500"

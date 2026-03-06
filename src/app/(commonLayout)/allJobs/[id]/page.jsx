@@ -5,9 +5,9 @@ import Link from 'next/link';
 import ApplyForm from '@/components/ApplyForm';
 
 const getJob = async (id) => {
-  const res = await fetch('http://localhost:3000/api/jobs');
-  const jobs = await res.json();
-  return jobs.find(job => job.id === parseInt(id));
+  const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
+  const job = await res.json();
+  return job;
 }
 
 const JobDetails = async ({ params }) => {
