@@ -31,7 +31,7 @@ const ApplyForm = ({ jobTitle, companyName }) => {
 
     // Simulate API call
     setTimeout(() => {
-      console.log('Form Submitted:', formData);
+      // console.log('Form Submitted:', formData);
       setIsSubmitting(false);
       setIsSuccess(true);
       setFormData({

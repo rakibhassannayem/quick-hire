@@ -2,20 +2,18 @@ import { FiSearch, FiFilter } from "react-icons/fi";
 import Container from "@/components/shared/Container";
 import InputJobSearch from "@/components/InputJobSearch";
 import Link from "next/link";
+import { getAllJobs } from "@/services/jobsServices";
+import FilterJobs from "@/components/FilterJobs";
 
 export const metadata = {
   title: "All Jobs",
 }
 
-const getJobs = async () => {
-  const res = await fetch('http://localhost:3000/api/jobs');
-  return await res.json()
-}
+const AllJobs = async ({ searchParams }) => {
+  const getParams = await searchParams
 
-const categories = ["Design", "Sales", "Marketing", "Finance", "Technology", "Engineering", "Business", "Human Resource"];
-
-const AllJobs = async() => {
-  const jobs = await getJobs();
+  // console.log("frontend: ",getParams)
+  const jobs = await getAllJobs({ ...getParams });
 
   const getKeywordColor = (keyword) => {
     const kw = keyword.toLowerCase();
@@ -52,17 +50,7 @@ const AllJobs = async() => {
                 <FiFilter className="text-primary" /> Filter by Category
               </h3>
               <div className="space-y-3">
-                {categories.map((cat) => (
-                  <label key={cat} className="flex items-center gap-3 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      className="w-5 h-5 border-gray-300 rounded text-primary focus:ring-primary accent-primary"
-                      // checked={selectedCategories.includes(cat)}
-                      // onChange={() => toggleCategory(cat)}
-                    />
-                    <span className="text-[#515B6F] group-hover:text-primary transition-colors">{cat}</span>
-                  </label>
-                ))}
+                <FilterJobs />
               </div>
             </div>
           </div>
@@ -118,17 +106,6 @@ const AllJobs = async() => {
                 <FiSearch className="mx-auto text-5xl text-gray-200 mb-4" />
                 <h3 className="text-xl font-bold text-gray-400">No jobs found</h3>
                 <p className="text-gray-400 mt-2">Try adjusting your filters or search keywords</p>
-                <button
-                  // onClick={() => {
-                  //   setSearchQuery("");
-                  //   setLocationQuery("");
-                  //   setSelectedCategories([]);
-                  //   setSelectedJobTypes([]);
-                  // }}
-                  className="mt-6 text-primary font-bold hover:underline"
-                >
-                  Clear all filters
-                </button>
               </div>
             )}
           </div>
