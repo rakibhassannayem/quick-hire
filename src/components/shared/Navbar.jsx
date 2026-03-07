@@ -1,14 +1,19 @@
+"use client"
 import React from 'react';
 import Logo from './Logo';
 import Link from 'next/link';
 import Container from './Container';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  const pathname = usePathname()
   const links = <>
     <li className='list-none'><Link href={'/allJobs'} className='text-slate-500'>Find Jobs</Link></li>
     <li className='list-none'><Link href={'#'} className='text-slate-500'>Browse Companies</Link></li>
     <li className='list-none'><Link href={'/dashboard'} className='text-slate-500'>Admin Dashboard</Link></li>
   </>
+
+  if (pathname.includes('dashboard')) return <></>
 
   return (
     <div className="navbar bg-primary/5 py-5">

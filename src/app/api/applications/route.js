@@ -22,3 +22,13 @@ export async function POST(request) {
     message: "Application sent successfully!",
   })
 }
+
+export async function GET(request) {
+  
+  const applicationCollection = await dbConnect("applications")
+
+
+  const applications = await applicationCollection.find({}).toArray()
+
+  return Response.json(applications)
+}

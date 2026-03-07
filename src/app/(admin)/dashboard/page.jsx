@@ -1,45 +1,29 @@
-import { FiBriefcase, FiUsers, FiEye, FiBarChart2 } from 'react-icons/fi';
+import StatCard from '@/components/dashboard/StatCard';
+import { getAllApplications } from '@/services/applicationServices';
+import { getAllJobs } from '@/services/jobsServices';
+import { FiBriefcase, FiUsers } from 'react-icons/fi';
 
-const StatCard = ({ title, value, icon, color, trend }) => (
-  <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-    <div className="flex items-center justify-between mb-4">
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg ${color}`}>
-        {icon}
-      </div>
-      {trend && (
-        <span className={`text-sm font-medium ${trend.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
-          {trend}
-        </span>
-      )}
-    </div>
-    <h3 className="text-gray-500 text-sm font-medium">{title}</h3>
-    <p className="text-2xl font-bold mt-1">{value}</p>
-  </div>
-);
+export const dynamic = 'force-dynamic'
 
-const DashboardPage = () => {
+const DashboardPage = async () => {
+  const jobs = await getAllJobs();
+  const applications = await getAllApplications();
+
   const stats = [
     {
       title: 'Total Jobs Posted',
-      value: '124',
+      value: jobs?.length || 0,
       icon: <FiBriefcase size={24} />,
       color: 'bg-blue-500 shadow-blue-500/20',
       trend: '+12% this month'
     },
     {
       title: 'Total Applications',
-      value: '3,582',
+      value: applications?.length || 0,
       icon: <FiUsers size={24} />,
       color: 'bg-primary shadow-primary/20',
       trend: '+18% this month'
     },
-    {
-      title: 'Job Views',
-      value: '45.2k',
-      icon: <FiEye size={24} />,
-      color: 'bg-orange-500 shadow-orange-500/20',
-      trend: '+5% this month'
-    }
   ];
 
   return (
@@ -49,7 +33,7 @@ const DashboardPage = () => {
         <p className="text-gray-500 mt-2">Here's what's happening with your job listings today.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {stats.map((stat, index) => (
           <StatCard key={index} {...stat} />
         ))}

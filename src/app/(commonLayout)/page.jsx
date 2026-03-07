@@ -4,10 +4,10 @@ import FeaturedJobs from "@/components/landing/FeaturedJobs";
 import Hero from "@/components/landing/Hero";
 import LatestJobs from "@/components/landing/LatestJobs";
 import Newsletter from "@/components/landing/Newsletter";
-import { getAllJobs } from "@/services/jobsServices";
+
+export const dynamic = 'force-dynamic'
 
 export default async function Home() {
-  const jobs = await getAllJobs();
 
   return (
     <div className="space-y-14">
@@ -15,8 +15,8 @@ export default async function Home() {
       <Companies />
       <Categories />
       <Newsletter />
-      <FeaturedJobs jobs={jobs} />
-      <LatestJobs jobs={jobs} />
+      <FeaturedJobs />
+      <LatestJobs />
     </div>
   );
 }

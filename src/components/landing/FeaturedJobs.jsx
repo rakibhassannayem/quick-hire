@@ -3,8 +3,13 @@ import Title from '../shared/Title';
 import Container from '../shared/Container';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Link from 'next/link';
+import { getAllJobs } from '@/services/jobsServices';
 
-const FeaturedJobs = ({ jobs = [] }) => {
+// export const dynamic = 'force-dynamic'
+
+const FeaturedJobs = async () => {
+  const jobs = await getAllJobs()
+
   const getKeywordColor = (keyword) => {
     const kw = keyword?.toLowerCase();
     if (kw === 'marketing') return 'text-orange-500 border-orange-500/20';

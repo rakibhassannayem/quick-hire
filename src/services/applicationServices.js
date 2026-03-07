@@ -15,3 +15,11 @@ export const postJobApplication = async (data) => {
 
   return res.json()
 }
+
+
+export const getAllApplications = async () => {
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/applications`);
+
+  return await res.json()
+}
