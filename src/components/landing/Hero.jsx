@@ -71,7 +71,7 @@ const Hero = () => {
 
           {/* image */}
           <div className='hidden lg:block w-1/2'>
-            <img src="/heroimage.png" alt="hero" className='w-[80%] ' />
+            <img src="/heroImage.png" alt="hero" className='w-[80%] ' />
           </div>
         </div>
       </Container>

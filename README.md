@@ -1,6 +1,6 @@
 # Quick Hire - Modern Job Portal Platform
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://quick-hire-rakib.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://quick-hire-orpin.vercel.app)
 
 **Quick Hire** is a powerful and modern job portal platform built with Next.js 16. It connects job seekers with startups and established companies, offering a seamless experience for finding and posting jobs.
 
